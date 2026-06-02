@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be Mine?</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ffd6e7,#ffeef5);
+    overflow:hidden;
+}
+
+.card{
+    text-align:center;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    max-width:400px;
+}
+
+h1{
+    color:#ff4f81;
+    margin-bottom:20px;
+}
+
+img{
+    width:180px;
+    margin-bottom:20px;
+}
+
+.buttons{
+    position:relative;
+    height:100px;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+    transition:0.2s;
+}
+
+#yesBtn{
+    background:#4CAF50;
+    color:white;
+    margin-right:15px;
+}
+
+#yesBtn:hover{
+    transform:scale(1.1);
+}
+
+#noBtn{
+    background:#ff4f81;
+    color:white;
+    position:absolute;
+}
+
+.success{
+    text-align:center;
+}
+
+.success h1{
+    font-size:3rem;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="mainCard">
+
+    <img src="https://media.tenor.com/mx6M4uWQ4iQAAAAi/cute-love.gif">
+
+    <h1>Will You Be My Girlfriend? ❤️</h1>
+
+    <div class="buttons">
+        <button id="yesBtn">Yes 💖</button>
+        <button id="noBtn">No 😭</button>
+    </div>
+
+</div>
+
+<script>
+
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const card = document.getElementById("mainCard");
+
+function moveButton(){
+    const maxX = window.innerWidth - 120;
+    const maxY = window.innerHeight - 60;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("click", moveButton);
+
+yesBtn.addEventListener("click", () => {
+
+    document.body.innerHTML = `
+        <div class="success">
+            <img src="https://media.tenor.com/0AVbKGY_MxMAAAAi/love.gif" width="250">
+            <h1>YAYYY!! 🎉❤️</h1>
+            <p style="font-size:22px;">
+                You just made me the happiest person alive 💕
+            </p>
+        </div>
+    `;
+
+});
+
+</script>
+
+</body>
+</html>
